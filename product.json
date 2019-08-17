@@ -1,0 +1,47 @@
+ {
+	"Head": "",
+	"secondHead": "",
+	"active": true,
+	"topDeals": [
+        {
+            "name": "",
+			"price": 400 ,
+			"description": "",
+			"fectures": [
+				"",
+				"VELVET MODULAR SECTIONAL SOFA: Navy Blue upholstered contemporary sofa design made of soft fabrics can be arranged in various ways for small or large spacious living areas to accommodate different spaces and used with other furniture's. Enjoy stretching your legs up to 60 worth of leg room with a chaise ottoman foot rest for ultimate relaxation.",
+				"",
+				" INFINITE CUSTOM SOFA STYLES: Configurable customization to customize it to a 2 or 3 seater sofa, a chaise lounger, loveseat or change it to additional sofa positions. This set includes a left corner seat, right facing corner seat, middle seat and an chaise ottoman or coffee table and two accent pillows. Each piece can adjust configuration and can be left facing or right facing"
+			],
+			"image": "sofa.jpg"
+        },
+           {
+            "name": "",
+			"price": 500,
+			"description": " .",
+			"fectures": [
+				"",
+				"VELVET MODULAR SECTIONAL SOFA: GREEN",
+				"",
+				"INFINITE CUSTOM SOFA STYLES: Configurable customization to customize it to a 2 or 3 seater sofa"
+			],
+			"image": "sofa1.jpg"
+        },
+           {
+            "name": "",
+			"price":650 ,
+			"description": "",
+			"fectures": [
+				"",
+			   "VELVET MODULAR SECTIONAL SOFA: GREEN",
+				"",
+				"INFINITE CUSTOM SOFA STYLES: Configurable customization to customize it to a 2 or 3 seater sofa"				
+			],
+			"image": "sofa3.jpg"
+        }
+	]
+}
+
+
+
+

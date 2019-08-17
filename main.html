@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>ALL Weird Deals Of The Day</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style type="text/css">
+		
+
+
+body {
+  text-align: center;
+  background-color: rgb(181, 94, 96);
+  font-size: 25px;
+  font-family: 'Gill Sans', sans-serif;
+  color: white;
+}
+
+
+li{
+	text-decoration: none;	
+	font-size: 20px;
+	color: black;
+
+}
+
+ #map {
+
+        height: 390px;  /* setting height to 390px */
+        width: 100vw;  /* setting width to 100px */
+       }
+ 
+
+
+ img{
+ 	height: 350px;  /*height if image is 350px*/
+ 	width:650px;    /*width of image is 650px*/
+ }
+
+
+
+       h3 {
+       	display: block;
+        text-transform: uppercase;
+       	text-align: center;
+       	color: white;
+       	font-size: 35px;
+       }
+
+
+	</style>
+</head>
+<body>
+
+
+<header>	
+</header>
+
+
+<section>
+</section>
+
+
+
+<h3> Find Us</h3>
+<div id="map"></div>
+
+<script type="text/javascript">
+	
+// declaring header and section variables
+
+var header = document.querySelector('header');
+var section = document.querySelector('section');
+
+
+
+// uploading json files on server and requsting url
+
+var requestURL = 'https://raw.githubusercontent.com/200396648/WeirdDealsWebApplication-/master/product.json';
+
+
+// CREATING NEW PROJECT REQUEST
+var request = new XMLHttpRequest();
+
+
+// request() method is getting url from the server
+request.open('GET', requestURL);
+
+
+// this is javascript for  accepting json from server
+request.responseType = 'json';
+
+
+// server() method sending request to the server
+request.send();
+
+
+// onload event to load page 
+request.onload = function() {
+
+
+	// declaring variable for header
+	var weiedDeals = request.response;
+
+	//Top Weied Deals
+	topDeals(weiedDeals);
+
+	//Main Header
+	mainHeader(weiedDeals);
+
+	// console for weied
+	console.log(weiedDeals);
+
+
+}
+
+
+// Function for mainHeader
+
+function mainHeader(jsonObj){
+
+	// Setting  the main Header
+	var firstHeader = document.createElement('h1');
+
+	// taking the  main header 
+	firstHeader.textContent = jsonObj['Head'];
+
+	// Setting the header in header tag
+	header.appendChild(firstHeader);
+
+
+	// Setting the second Header
+    var secondHeader = document.createElement('h2');
+    //taking the second header
+    secondHeader.textContent = jsonObj['secondHead'];
+    //setting  this header in header tag
+    header.appendChild(secondHeader);
+}
+
+
+// Another function for top deals
+
+function topDeals(jsonObj){
+
+	//Declaration of top deals variable
+
+	var dealsOfDay = jsonObj['topDeals'];
+
+	//for loop to topdeals object
+
+	for (var i = 0; i < dealsOfDay.length; i++){
+
+		// Declaration of varibles to set all tags
+
+	 	var article = document.createElement('article');
+	    var img = document.createElement('img');
+	    var list = document.createElement('ul');
+		var h2 = document.createElement('h2');
+	 	var p2 = document.createElement('p');
+		var p1 = document.createElement('p');
+
+
+
+		// Set all property for each element based on JSON
+
+		img.setAttribute('src', 'https://raw.githubusercontent.com/200396648/WeirdDealsWebApplication-/master/WeirdDealsWebApplication/image/' + dealsOfDay[i].image);
+		img.setAttribute('alt', dealsOfDay[i].name);
+
+		h2.textContent = dealsOfDay[i].name;
+		p1.textContent = 'Price: ' + dealsOfDay[i].price;
+
+		p2.textContent = 'Description: ' + dealsOfDay[i].description;
+
+
+		// Declaration of variable for features
+		var fectures = dealsOfDay[i].fectures;
+
+
+
+		//For loop for list item 
+		for (var j = 0; j < fectures.length; j++){
+
+		var productItem = document.createElement('li');
+
+		productItem.textContent = fectures[j];
+		list.appendChild(productItem);
+		}
+
+
+		article.appendChild(img);
+		article.appendChild(h2);
+		article.appendChild(p1);
+		article.appendChild(p2);
+		article.appendChild(list);
+		section.appendChild(article);
+	}
+}
+
+
+// javascript for map
+
+function initMap(){
+
+
+	var newmap = {lat: 44.365500, lng: -79.701087};
+
+	var map = new google.maps.Map(
+		document.getElementById('map'), {zoom: 12, center: newmap});
+
+	var marker = new google.maps.Marker({position: newmap, map: map});
+}
+
+</script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+  type="text/javascript"></script>		
+
+
+
+
+</body>
+
+</html>
